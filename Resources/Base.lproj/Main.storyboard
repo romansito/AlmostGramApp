@@ -25,16 +25,15 @@
                                     <action selector="presentImagePickerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKj-JV-225"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SpX-ki-9fz">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SpX-ki-9fz">
                                 <rect key="frame" x="178" y="501" width="244" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="882-Ib-GvI">
                                         <rect key="frame" x="0.0" y="4" width="110" height="42"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                        <state key="normal" title="Add a Filter">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                        <state key="normal" title="Add a Filter" backgroundImage="buttonImage.png">
+                                            <color key="titleColor" red="0.23921568627450979" green="0.54117647058823526" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="filterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pbz-JM-bn3"/>
@@ -43,11 +42,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU1-jg-q3p">
                                         <rect key="frame" x="137" y="4" width="107" height="42"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         <size key="titleShadowOffset" width="0.0" height="2.2250738585072014e-308"/>
-                                        <state key="normal" title="Upload Image">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Upload Image" backgroundImage="buttonImage.png">
+                                            <color key="titleColor" red="0.23921568627450979" green="0.54117647058823526" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="uploadedImageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ogl-2K-LAe"/>
@@ -55,24 +53,24 @@
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nw8-8F-PeU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nw8-8F-PeU">
                                 <rect key="frame" x="120" y="120" width="360" height="360"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.23921568627450979" green="0.54117647058823526" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0ae-b5-a7V" firstAttribute="centerY" secondItem="Nw8-8F-PeU" secondAttribute="centerY" constant="-2" id="1lB-bk-6OL"/>
+                            <constraint firstItem="SpX-ki-9fz" firstAttribute="top" secondItem="Nw8-8F-PeU" secondAttribute="bottom" constant="21" id="3Au-9e-x2x"/>
                             <constraint firstItem="Nw8-8F-PeU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="3au-Pg-gKe"/>
                             <constraint firstItem="0ae-b5-a7V" firstAttribute="height" secondItem="Nw8-8F-PeU" secondAttribute="height" id="6to-Uo-iPb"/>
                             <constraint firstItem="0ae-b5-a7V" firstAttribute="width" secondItem="Nw8-8F-PeU" secondAttribute="width" id="AgB-FB-NS0"/>
                             <constraint firstItem="Nw8-8F-PeU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="G2O-M6-Ggt"/>
                             <constraint firstItem="0ae-b5-a7V" firstAttribute="centerX" secondItem="Nw8-8F-PeU" secondAttribute="centerX" id="PJd-A4-o2Q"/>
                             <constraint firstItem="Nw8-8F-PeU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TJV-q6-nTl"/>
+                            <constraint firstItem="SpX-ki-9fz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w0G-K6-bJq"/>
                             <constraint firstItem="Nw8-8F-PeU" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="yee-rI-J4e"/>
                         </constraints>
                     </view>
@@ -85,4 +83,8 @@
             <point key="canvasLocation" x="305" y="372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttonImage.png" width="324" height="57"/>
+        <image name="placeholderimage.png" width="1500" height="1500"/>
+    </resources>
 </document>
