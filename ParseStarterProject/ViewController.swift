@@ -13,13 +13,19 @@ import Parse
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 	@IBOutlet weak var imageView: UIImageView!
-
-	let imagePicker = UIImagePickerController()
+	
+//	let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 			
-			self.imagePicker.delegate = self
+//			self.imagePicker.delegate = self
+			
+			let testObject = PFObject(className: "TestObject")
+			testObject["foo"] = "bar"
+			testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+				print("Object has been saved.")
+			}
     }
 
 	
@@ -31,8 +37,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		if UIImagePickerController.isSourceTypeAvailable(.Camera) {
 			self.presentActionSheet()
 		} else {
-			self.imagePicker.sourceType = (.PhotoLibrary)
-			self.presentViewController(self.imagePicker, animated: true, completion: nil)
+			self.presentImagePickerFor(.PhotoLibrary)
+//			self.presentViewController(self.imagePicker, animated: true, completion: nil)
 		}
 	}
 
@@ -40,12 +46,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	
 	@IBAction func uploadedImageButton(sender: UIButton) {
 		
-	sender.enabled = false
+//	sender.enabled = false
 		
 		if let image = self.imageView.image {
 			API.uploadImage(image) { (success) -> () in
 				if success {
-					sender.enabled = true
+//					sender.enabled = true
 					self.presentAlertView()
 				}
 		}
@@ -62,13 +68,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		let alertController = UIAlertController(title: "", message: "Where Would you like to get your Picture From?", preferredStyle: .ActionSheet)
 		
 		let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) { (action) -> Void in
-		self.imagePicker.sourceType = (.Camera)
-			self.presentViewController(self.imagePicker, animated: true, completion: nil)
+		self.presentImagePickerFor(.Camera)
 			
 		}
 		let photoLibrary = UIAlertAction(title: "Photos in Library", style: UIAlertActionStyle.Default) { (action) -> Void in
-			self.imagePicker.sourceType = (.PhotoLibrary)
-			self.presentViewController(self.imagePicker, animated: true, completion: nil)
+			self.presentImagePickerFor(.PhotoLibrary)
 		}
 		
 		let cancelAction = UIAlertAction(title: "Cancel?", style: UIAlertActionStyle.Cancel, handler: nil)
@@ -122,7 +126,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		}
 		let chromeFilterAction = UIAlertAction(title: "Chrome", style: .Default) { (alert) -> Void in
 			FilterService.applyChromeEffect(self.imageView.image!, completion: { (filteredImage, name) -> Void in
-				if let FilterService = filteredImage {
+				if let filteredImage = filteredImage {
 					self.imageView.image = filteredImage
 				}
 			})
