@@ -14,6 +14,9 @@
 		3090AA2E1BE8597A00116545 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3090AA2D1BE8597A00116545 /* Splash.storyboard */; };
 		3090AA301BE91AF100116545 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090AA2F1BE91AF100116545 /* API.swift */; };
 		30C798BE1BE9E1E200A39B3D /* buttonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C798BD1BE9E1E200A39B3D /* buttonImage.png */; };
+		30C798C81BEB128200A39B3D /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C798C71BEB128200A39B3D /* GalleryViewController.swift */; };
+		30C798CA1BEBBA0000A39B3D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C798C91BEBBA0000A39B3D /* ImageCollectionViewCell.swift */; };
+		30C798CC1BEC0F6800A39B3D /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C798CB1BEC0F6800A39B3D /* Status.swift */; };
 		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 		3090AA2D1BE8597A00116545 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		3090AA2F1BE91AF100116545 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		30C798BD1BE9E1E200A39B3D /* buttonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonImage.png; sourceTree = "<group>"; };
+		30C798C71BEB128200A39B3D /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		30C798C91BEBBA0000A39B3D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		30C798CB1BEC0F6800A39B3D /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +114,9 @@
 				3090AA271BE8563A00116545 /* Constants .swift */,
 				3090AA2F1BE91AF100116545 /* API.swift */,
 				306BB6DB1BE9727800DC34ED /* ImageResizer.swift */,
+				30C798C71BEB128200A39B3D /* GalleryViewController.swift */,
+				30C798C91BEBBA0000A39B3D /* ImageCollectionViewCell.swift */,
+				30C798CB1BEC0F6800A39B3D /* Status.swift */,
 			);
 			name = AlmostGram;
 			path = ParseStarterProject;
@@ -230,8 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				30C798C81BEB128200A39B3D /* GalleryViewController.swift in Sources */,
+				30C798CA1BEBBA0000A39B3D /* ImageCollectionViewCell.swift in Sources */,
 				306BB6DA1BE95E8900DC34ED /* FilterService.swift in Sources */,
 				3090AA281BE8563A00116545 /* Constants .swift in Sources */,
+				30C798CC1BEC0F6800A39B3D /* Status.swift in Sources */,
 				3090AA301BE91AF100116545 /* API.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				306BB6DC1BE9727800DC34ED /* ImageResizer.swift in Sources */,
