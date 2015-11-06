@@ -9,8 +9,17 @@
 import UIKit
 import Parse
 
+protocol GalleryViewControllerDelegate {
+	func galleryViewControllerDidFinish(image: UIImage)
+}
+
+
+
+
 class GalleryViewController: UIViewController, UICollectionViewDataSource {
+	var delegate: GalleryViewControllerDelegate?
 	
+	// Watch out for the misspelled collection view!
 	@IBOutlet weak var colletionView: UICollectionView!
 	
 	let myCollectionViewLayout = CustomeFlowLayout()
