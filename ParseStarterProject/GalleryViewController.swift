@@ -9,9 +9,11 @@
 import UIKit
 import Parse
 
-class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class GalleryViewController: UIViewController, UICollectionViewDataSource {
 	
 	@IBOutlet weak var colletionView: UICollectionView!
+	
+	let myCollectionViewLayout = CustomeFlowLayout()
 	
 	var posts = [PFObject]() {
 		didSet {
@@ -21,6 +23,12 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		
+		self.colletionView.dataSource = self
+		
+		self.colletionView.collectionViewLayout = myCollectionViewLayout
+		
 		let query = PFQuery(className: "Status")
 		
 		query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -28,7 +36,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 				self.posts = objects
 			}
 		}
-		
+	
 		
 	}
 	
