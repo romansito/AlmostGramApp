@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		301BEFA01BE9D24B003D5E69 /* placeholderimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 301BEF9F1BE9D24B003D5E69 /* placeholderimage.png */; };
 		3036A5951BEC1D37009AF78B /* CustomeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A5941BEC1D37009AF78B /* CustomeFlowLayout.swift */; };
+		3036A5971BED6231009AF78B /* FiltersPreviewViewController in Sources */ = {isa = PBXBuildFile; fileRef = 3036A5961BED6231009AF78B /* FiltersPreviewViewController */; };
+		3036A5991BED64D5009AF78B /* FilterPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */; };
+		3036A59B1BED6F2D009AF78B /* FlexibleFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */; };
 		306BB6DA1BE95E8900DC34ED /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306BB6D91BE95E8900DC34ED /* FilterService.swift */; };
 		306BB6DC1BE9727800DC34ED /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306BB6DB1BE9727800DC34ED /* ImageResizer.swift */; };
 		3090AA281BE8563A00116545 /* Constants .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090AA271BE8563A00116545 /* Constants .swift */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		301BEF9F1BE9D24B003D5E69 /* placeholderimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderimage.png; sourceTree = "<group>"; };
 		3036A5941BEC1D37009AF78B /* CustomeFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeFlowLayout.swift; sourceTree = "<group>"; };
+		3036A5961BED6231009AF78B /* FiltersPreviewViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FiltersPreviewViewController; sourceTree = "<group>"; };
+		3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPreviewCell.swift; sourceTree = "<group>"; };
+		3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleFlowLayout.swift; sourceTree = "<group>"; };
 		306BB6D91BE95E8900DC34ED /* FilterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		306BB6DB1BE9727800DC34ED /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
 		3090AA271BE8563A00116545 /* Constants .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants .swift"; sourceTree = "<group>"; };
@@ -113,13 +119,16 @@
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				306BB6D91BE95E8900DC34ED /* FilterService.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
+				3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */,
 				3090AA271BE8563A00116545 /* Constants .swift */,
 				3090AA2F1BE91AF100116545 /* API.swift */,
 				306BB6DB1BE9727800DC34ED /* ImageResizer.swift */,
 				30C798C71BEB128200A39B3D /* GalleryViewController.swift */,
+				3036A5961BED6231009AF78B /* FiltersPreviewViewController */,
 				30C798C91BEBBA0000A39B3D /* ImageCollectionViewCell.swift */,
 				30C798CB1BEC0F6800A39B3D /* Status.swift */,
 				3036A5941BEC1D37009AF78B /* CustomeFlowLayout.swift */,
+				3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */,
 			);
 			name = AlmostGram;
 			path = ParseStarterProject;
@@ -248,8 +257,11 @@
 				3090AA281BE8563A00116545 /* Constants .swift in Sources */,
 				30C798CC1BEC0F6800A39B3D /* Status.swift in Sources */,
 				3090AA301BE91AF100116545 /* API.swift in Sources */,
+				3036A5971BED6231009AF78B /* FiltersPreviewViewController in Sources */,
+				3036A59B1BED6F2D009AF78B /* FlexibleFlowLayout.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				3036A5951BEC1D37009AF78B /* CustomeFlowLayout.swift in Sources */,
+				3036A5991BED64D5009AF78B /* FilterPreviewCell.swift in Sources */,
 				306BB6DC1BE9727800DC34ED /* ImageResizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

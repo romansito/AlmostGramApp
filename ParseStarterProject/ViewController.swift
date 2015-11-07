@@ -11,26 +11,36 @@ yolo slugs
 import UIKit
 import Parse
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GalleryViewControllerDelegate, UITabBarControllerDelegate, UICollectionViewDelegate {
 
 	@IBOutlet weak var imageView: UIImageView!
 	
-//	let imagePicker = UIImagePickerController()
+//	@IBAction func pinchGesture(sender: UIPinchGestureRecognizer) {
+//		let scare = sender.scale
+//		let velocity = sender.velocity
+//		let resultSt
+//	}
+	
+	let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-			
-//			self.imagePicker.delegate = self
-			
+		self.imagePicker.delegate = self
+		
 			let testObject = PFObject(className: "TestObject")
 			testObject["foo"] = "bar"
 			testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
 				print("Object has been saved.")
 			}
+		
+			if let tabBarController = self.tabBarController, viewControllers = tabBarController.viewControllers {
+			if let galleryViewController = viewControllers[1] as? GalleryViewController {
+				galleryViewController.delegate = self
+			}
+		}
     }
 
-	
-    override func didReceiveMemoryWarning() {
+	override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 	
@@ -42,8 +52,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //			self.presentViewController(self.imagePicker, animated: true, completion: nil)
 		}
 	}
-
-
 	
 	@IBAction func uploadedImageButton(sender: UIButton) {
 		
@@ -54,11 +62,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 				if success {
 //					sender.enabled = true
 					self.presentAlertView()
-				}
+			}
 		}
 	}
 }
-	
 	
 	@IBAction func filterButton(sender: UIButton) {
 		presentFilterAlert()
@@ -86,17 +93,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 		}
 	
-	
-	
 	func presentAlertView() {
 		let alertController = UIAlertController(title: "", message: "Image Uploaded", preferredStyle: .Alert)
 		let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
 		alertController.addAction(okAction)
 		self.presentViewController(alertController, animated: true, completion: nil)
 	}
-	
-	
-	
 	
 	func presentImagePickerFor(sourceType: UIImagePickerControllerSourceType) {
 		
@@ -106,8 +108,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		self.presentViewController(imagePickerController, animated: true, completion: nil)
 	}
 
-	
-	
 	func presentFilterAlert() {
 		let alertController = UIAlertController(title: "Filter", message: "Pick your Favorite Filter", preferredStyle: .ActionSheet)
 		
@@ -144,7 +144,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		self.presentViewController(alertController, animated: true, completion: nil)
 		
 	}
-	
+
+	// Gallery ViewController Delegate
+	func galleryViewControllerDidFinish(image: UIImage) {
+		//Set this view controller image to image
+		self.imageView.image = image
+		// Get tabBar controller
+		self.tabBarController?.selectedIndex = 0
+	}
 	
 	// MARK: UIImagePickerController Delegate
 	// Here you'll find the two protocol functions to the UIImagePicker Controller
@@ -160,6 +167,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
+	
+	// Passing the image in self imageView and tell it to pass it to my preview Image VC and take the image and create a image with filters.
+
+	
+	func filtersPreviewViewControllerDidFinish(image: UIImage) {
+		self.imageView.image = image
+		self.dismissViewControllerAnimated(true, completion: nil)
+		
+	}
+	
+	
+//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//		if segue.identifier == "filterViewController" {
+//			let previewFilterViewController = segue.destinationViewController as! FilterPreviewCell
+//			destinationViewController.image = self.imageView.image
+//			previewFilterViewController.delegate = self
+//		}
+//	}
+//	
+	
+
 }
 
 

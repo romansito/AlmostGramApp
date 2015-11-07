@@ -10,13 +10,11 @@ import UIKit
 import Parse
 
 protocol GalleryViewControllerDelegate {
-	func galleryViewControllerDidFinish(image: UIImage)
+	func galleryViewControllerDidFinish(image: UIImage) -> ()
 }
 
-
-
-
-class GalleryViewController: UIViewController, UICollectionViewDataSource {
+class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+	
 	var delegate: GalleryViewControllerDelegate?
 	
 	// Watch out for the misspelled collection view!
@@ -32,11 +30,14 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		
+//		self.setupGestureRecognizers()
 		self.colletionView.dataSource = self
-		
+		self.colletionView.delegate = self
 		self.colletionView.collectionViewLayout = myCollectionViewLayout
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(false)
 		
 		let query = PFQuery(className: "Status")
 		
@@ -45,16 +46,25 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
 				self.posts = objects
 			}
 		}
-	
-		
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		
 	}
 	
+	 // Gesture Function
 	
+//	func setupGestureRecognizers() {
+//	let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
+//		tapGestureReconizer.numberOfTapsRequired = 1
+//		tapGestureReconizer.numberOfTapsRequired = 1
+//		
+//		self.colletionView.addGestureRecognizer(tapGestureReconizer)
+//	}
+//	
+//	func handleTapGesture(){
+//		
+//	}
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return self.posts.count
@@ -76,4 +86,15 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
 		
 		return cell
 	}
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let cell = colletionView.cellForItemAtIndexPath(indexPath) as! ImageCollectionViewCell
+		
+		let image = cell.imageView.image
+		
+		delegate?.galleryViewControllerDidFinish(image!)
+		
+		self.tabBarController?.selectedIndex = 0
+	}
+	
 }
