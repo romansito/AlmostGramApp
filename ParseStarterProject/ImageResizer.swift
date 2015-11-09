@@ -11,19 +11,16 @@ import UIKit
 
 extension UIImage {
 	
-	class func ImageResizer(image: UIImage, size: CGSize) -> UIImage {
+	class func resizeImage(image: UIImage, size: CGSize) -> UIImage {
 		
 		UIGraphicsBeginImageContext(size)
 		image.drawInRect(CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
 		// Grab Snapshot from the Context.
-		let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+		let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
 		//End Image
 		UIGraphicsEndImageContext()
 		
-		return resizedImage
+		return resizeImage
 	}
-	
-	
-	
 	
 }

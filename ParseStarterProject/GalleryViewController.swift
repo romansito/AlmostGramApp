@@ -13,6 +13,10 @@ protocol GalleryViewControllerDelegate {
 	func galleryViewControllerDidFinish(image: UIImage) -> ()
 }
 
+protocol CollectionViewControllerDelegate {
+	func collectionViewSelectedStatus(status: Status)
+}
+
 class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 	
 	var delegate: GalleryViewControllerDelegate?
@@ -21,6 +25,13 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 	@IBOutlet weak var colletionView: UICollectionView!
 	
 	let myCollectionViewLayout = CustomeFlowLayout()
+	
+	var status = [Status]() {
+		didSet {
+			self.colletionView.reloadData()
+		}
+	}
+	
 	
 	var posts = [PFObject]() {
 		didSet {
@@ -33,7 +44,11 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 //		self.setupGestureRecognizers()
 		self.colletionView.dataSource = self
 		self.colletionView.delegate = self
-		self.colletionView.collectionViewLayout = myCollectionViewLayout
+//		self.colletionView.collectionViewLayout = myCollectionViewLayout
+		self.colletionView.collectionViewLayout = FlexibleFlowLayout(columns: 3.0)
+		
+		let gesturePinchRecognizer = UIPinchGestureRecognizer(target: self , action: Selector("scaleCollectionWhenPinched:"))
+		colletionView.addGestureRecognizer(gesturePinchRecognizer)
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -96,5 +111,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 		
 		self.tabBarController?.selectedIndex = 0
 	}
+	
+
 	
 }

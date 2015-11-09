@@ -12,6 +12,13 @@
 		3036A5971BED6231009AF78B /* FiltersPreviewViewController in Sources */ = {isa = PBXBuildFile; fileRef = 3036A5961BED6231009AF78B /* FiltersPreviewViewController */; };
 		3036A5991BED64D5009AF78B /* FilterPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */; };
 		3036A59B1BED6F2D009AF78B /* FlexibleFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */; };
+		3036A5A31BF07DA7009AF78B /* polaroi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A59D1BF07DA7009AF78B /* polaroi.png */; };
+		3036A5A51BF07DA7009AF78B /* setting2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A59F1BF07DA7009AF78B /* setting2.png */; };
+		3036A5A91BF07E6F009AF78B /* upload2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A5A81BF07E6F009AF78B /* upload2.png */; };
+		3036A5AB1BF08155009AF78B /* solidupload2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A5AA1BF08154009AF78B /* solidupload2.png */; };
+		3036A5AD1BF08162009AF78B /* solidsetting2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A5AC1BF08162009AF78B /* solidsetting2.png */; };
+		3036A5AF1BF08171009AF78B /* solidpolaroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A5AE1BF08171009AF78B /* solidpolaroid.png */; };
+		3036A5B11BF08330009AF78B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 3036A5B01BF08330009AF78B /* home.png */; };
 		306BB6DA1BE95E8900DC34ED /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306BB6D91BE95E8900DC34ED /* FilterService.swift */; };
 		306BB6DC1BE9727800DC34ED /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306BB6DB1BE9727800DC34ED /* ImageResizer.swift */; };
 		3090AA281BE8563A00116545 /* Constants .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090AA271BE8563A00116545 /* Constants .swift */; };
@@ -39,6 +46,13 @@
 		3036A5961BED6231009AF78B /* FiltersPreviewViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FiltersPreviewViewController; sourceTree = "<group>"; };
 		3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPreviewCell.swift; sourceTree = "<group>"; };
 		3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleFlowLayout.swift; sourceTree = "<group>"; };
+		3036A59D1BF07DA7009AF78B /* polaroi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = polaroi.png; sourceTree = "<group>"; };
+		3036A59F1BF07DA7009AF78B /* setting2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting2.png; sourceTree = "<group>"; };
+		3036A5A81BF07E6F009AF78B /* upload2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload2.png; sourceTree = "<group>"; };
+		3036A5AA1BF08154009AF78B /* solidupload2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solidupload2.png; sourceTree = "<group>"; };
+		3036A5AC1BF08162009AF78B /* solidsetting2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solidsetting2.png; sourceTree = "<group>"; };
+		3036A5AE1BF08171009AF78B /* solidpolaroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solidpolaroid.png; sourceTree = "<group>"; };
+		3036A5B01BF08330009AF78B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		306BB6D91BE95E8900DC34ED /* FilterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		306BB6DB1BE9727800DC34ED /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
 		3090AA271BE8563A00116545 /* Constants .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants .swift"; sourceTree = "<group>"; };
@@ -85,7 +99,14 @@
 		814C3AC51B69877600E307BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3036A5AC1BF08162009AF78B /* solidsetting2.png */,
+				3036A5AE1BF08171009AF78B /* solidpolaroid.png */,
+				3036A59D1BF07DA7009AF78B /* polaroi.png */,
+				3036A5A81BF07E6F009AF78B /* upload2.png */,
+				3036A5AA1BF08154009AF78B /* solidupload2.png */,
+				3036A59F1BF07DA7009AF78B /* setting2.png */,
 				301BEF9F1BE9D24B003D5E69 /* placeholderimage.png */,
+				3036A5B01BF08330009AF78B /* home.png */,
 				814C3AC81B69877600E307BB /* Images.xcassets */,
 				30C798BD1BE9E1E200A39B3D /* buttonImage.png */,
 				814C3AC91B69877600E307BB /* Info.plist */,
@@ -219,9 +240,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
+				3036A5AB1BF08155009AF78B /* solidupload2.png in Resources */,
 				301BEFA01BE9D24B003D5E69 /* placeholderimage.png in Resources */,
+				3036A5A31BF07DA7009AF78B /* polaroi.png in Resources */,
 				30C798BE1BE9E1E200A39B3D /* buttonImage.png in Resources */,
+				3036A5AD1BF08162009AF78B /* solidsetting2.png in Resources */,
+				3036A5A51BF07DA7009AF78B /* setting2.png in Resources */,
+				3036A5AF1BF08171009AF78B /* solidpolaroid.png in Resources */,
+				3036A5B11BF08330009AF78B /* home.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
+				3036A5A91BF07E6F009AF78B /* upload2.png in Resources */,
 				3090AA2E1BE8597A00116545 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

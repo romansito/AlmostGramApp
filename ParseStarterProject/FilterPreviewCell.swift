@@ -9,7 +9,18 @@
 import UIKit
 
 class FilterPreviewCell: UICollectionViewCell {
-	@IBOutlet weak var imageView : UIImageView!
+	@IBOutlet weak var filtereImage: UIImageView!
+	var image : UIImage? {
+		didSet {
+			if let image = image {
+				self.filtereImage.image = image
+			}
+		}
+	}
+	
+	class func identifier() -> String {
+		return "FilteredCollectionViewCell"
+	}
 	
 	
 }

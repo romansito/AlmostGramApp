@@ -12,7 +12,7 @@ protocol FiltersPreviewViewControllerDelegate {
 	func filtersPreviewViewControllerDidFinish(image: UIImage)
 }
 
-class FiltersPreviewViewController: UIViewController, UICollectionViewDelegate, UICollFilterPreviewCellectionViewDataSource{
+class FiltersPreviewViewController: UIViewController, UICollectionViewDelegate,UICollFilterPreviewCellectionViewDataSource {
 
 	var delegate : FiltersPreviewViewControllerDelegate?
 	
