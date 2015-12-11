@@ -56,7 +56,7 @@
 		306BB6D91BE95E8900DC34ED /* FilterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		306BB6DB1BE9727800DC34ED /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
 		3090AA271BE8563A00116545 /* Constants .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants .swift"; sourceTree = "<group>"; };
-		3090AA2D1BE8597A00116545 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		3090AA2D1BE8597A00116545 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Splash.storyboard; path = ../Splash.storyboard; sourceTree = "<group>"; };
 		3090AA2F1BE91AF100116545 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		30C798BD1BE9E1E200A39B3D /* buttonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonImage.png; sourceTree = "<group>"; };
 		30C798C71BEB128200A39B3D /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -96,9 +96,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30AE52301C1AC73800C2DAF8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3090AA2F1BE91AF100116545 /* API.swift */,
+				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		30AE52311C1AC74F00C2DAF8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81BA814C1A49DA1800E65899 /* ViewController.swift */,
+				30C798C71BEB128200A39B3D /* GalleryViewController.swift */,
+				3036A5961BED6231009AF78B /* FiltersPreviewViewController */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		30AE52321C1AC76A00C2DAF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				306BB6D91BE95E8900DC34ED /* FilterService.swift */,
+				3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */,
+				3090AA271BE8563A00116545 /* Constants .swift */,
+				306BB6DB1BE9727800DC34ED /* ImageResizer.swift */,
+				30C798C91BEBBA0000A39B3D /* ImageCollectionViewCell.swift */,
+				30C798CB1BEC0F6800A39B3D /* Status.swift */,
+				3036A5941BEC1D37009AF78B /* CustomeFlowLayout.swift */,
+				3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		30AE52331C1AC78E00C2DAF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3090AA2D1BE8597A00116545 /* Splash.storyboard */,
+				814C3AC61B69877600E307BB /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		814C3AC51B69877600E307BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				814C3AC81B69877600E307BB /* Images.xcassets */,
 				3036A5AC1BF08162009AF78B /* solidsetting2.png */,
 				3036A5AE1BF08171009AF78B /* solidpolaroid.png */,
 				3036A59D1BF07DA7009AF78B /* polaroi.png */,
@@ -107,7 +151,6 @@
 				3036A59F1BF07DA7009AF78B /* setting2.png */,
 				301BEF9F1BE9D24B003D5E69 /* placeholderimage.png */,
 				3036A5B01BF08330009AF78B /* home.png */,
-				814C3AC81B69877600E307BB /* Images.xcassets */,
 				30C798BD1BE9E1E200A39B3D /* buttonImage.png */,
 				814C3AC91B69877600E307BB /* Info.plist */,
 			);
@@ -117,7 +160,6 @@
 		81BA813C1A49DA1800E65899 = {
 			isa = PBXGroup;
 			children = (
-				3090AA2D1BE8597A00116545 /* Splash.storyboard */,
 				81BA81471A49DA1800E65899 /* AlmostGram */,
 				814C3AC51B69877600E307BB /* Resources */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
@@ -136,20 +178,10 @@
 		81BA81471A49DA1800E65899 /* AlmostGram */ = {
 			isa = PBXGroup;
 			children = (
-				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
-				81BA814C1A49DA1800E65899 /* ViewController.swift */,
-				306BB6D91BE95E8900DC34ED /* FilterService.swift */,
-				814C3AC61B69877600E307BB /* Main.storyboard */,
-				3036A5981BED64D5009AF78B /* FilterPreviewCell.swift */,
-				3090AA271BE8563A00116545 /* Constants .swift */,
-				3090AA2F1BE91AF100116545 /* API.swift */,
-				306BB6DB1BE9727800DC34ED /* ImageResizer.swift */,
-				30C798C71BEB128200A39B3D /* GalleryViewController.swift */,
-				3036A5961BED6231009AF78B /* FiltersPreviewViewController */,
-				30C798C91BEBBA0000A39B3D /* ImageCollectionViewCell.swift */,
-				30C798CB1BEC0F6800A39B3D /* Status.swift */,
-				3036A5941BEC1D37009AF78B /* CustomeFlowLayout.swift */,
-				3036A59A1BED6F2D009AF78B /* FlexibleFlowLayout.swift */,
+				30AE52301C1AC73800C2DAF8 /* App */,
+				30AE52311C1AC74F00C2DAF8 /* Controller */,
+				30AE52321C1AC76A00C2DAF8 /* Model */,
+				30AE52331C1AC78E00C2DAF8 /* View */,
 			);
 			name = AlmostGram;
 			path = ParseStarterProject;

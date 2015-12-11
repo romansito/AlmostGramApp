@@ -21,7 +21,6 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	var delegate: GalleryViewControllerDelegate?
 	
-	// Watch out for the misspelled collection view!
 	@IBOutlet weak var colletionView: UICollectionView!
 	
 	let myCollectionViewLayout = CustomeFlowLayout()
@@ -32,7 +31,6 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 		}
 	}
 	
-	
 	var posts = [PFObject]() {
 		didSet {
 			self.colletionView.reloadData()
@@ -41,10 +39,8 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		self.setupGestureRecognizers()
 		self.colletionView.dataSource = self
 		self.colletionView.delegate = self
-//		self.colletionView.collectionViewLayout = myCollectionViewLayout
 		self.colletionView.collectionViewLayout = FlexibleFlowLayout(columns: 3.0)
 		
 		let gesturePinchRecognizer = UIPinchGestureRecognizer(target: self , action: Selector("scaleCollectionWhenPinched:"))
@@ -66,20 +62,6 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-	
-	 // Gesture Function
-	
-//	func setupGestureRecognizers() {
-//	let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
-//		tapGestureReconizer.numberOfTapsRequired = 1
-//		tapGestureReconizer.numberOfTapsRequired = 1
-//		
-//		self.colletionView.addGestureRecognizer(tapGestureReconizer)
-//	}
-//	
-//	func handleTapGesture(){
-//		
-//	}
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return self.posts.count
