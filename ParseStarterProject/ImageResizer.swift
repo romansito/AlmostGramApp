@@ -23,7 +23,4 @@ extension UIImage {
 		return resizeImage
 	}
 	
-	
-	
-	
 }

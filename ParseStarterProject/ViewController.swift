@@ -5,25 +5,41 @@
 * This source code is licensed under the BSD-style license found in the
 * LICENSE file in the root directory of this source tree. An additional grant
 * of patent rights can be found in the PATENTS file in the same directory.
+yolo slugs
 */
 
 import UIKit
 import Parse
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GalleryViewControllerDelegate, UITabBarControllerDelegate, UICollectionViewDelegate , UICollectionViewDataSource {
 
 	@IBOutlet weak var imageView: UIImageView!
-
+	@IBOutlet weak var filteredThumbnail: UICollectionView!
+	var filteredImages = [UIImage]() {
+		didSet{
+			self.filteredThumbnail.reloadData()
+		}
+	}
 	let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-			
-			self.imagePicker.delegate = self
+		self.imagePicker.delegate = self
+		self.filteredThumbnail.delegate = self
+		
+		let collectionViewBounds = CGRectGetWidth(UIScreen.mainScreen().bounds)
+		let collectionViewHeight = CGRectGetHeight(self.filteredThumbnail.frame)
+
+		(collectionViewBounds, viewHeight: collectionViewHeight)
+
+			if let tabBarController = self.tabBarController, viewControllers = tabBarController.viewControllers {
+			if let galleryViewController = viewControllers[1] as? GalleryViewController {
+				galleryViewController.delegate = self
+			}
+		}
     }
 
-	
-    override func didReceiveMemoryWarning() {
+	override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 	
@@ -31,27 +47,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		if UIImagePickerController.isSourceTypeAvailable(.Camera) {
 			self.presentActionSheet()
 		} else {
-			self.imagePicker.sourceType = (.PhotoLibrary)
-			self.presentViewController(self.imagePicker, animated: true, completion: nil)
+			self.presentImagePickerFor(.PhotoLibrary)
 		}
 	}
-
-
 	
 	@IBAction func uploadedImageButton(sender: UIButton) {
 		
-	sender.enabled = false
 		
 		if let image = self.imageView.image {
 			API.uploadImage(image) { (success) -> () in
 				if success {
-					sender.enabled = true
 					self.presentAlertView()
-				}
+			}
 		}
 	}
 }
-	
 	
 	@IBAction func filterButton(sender: UIButton) {
 		presentFilterAlert()
@@ -62,13 +72,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		let alertController = UIAlertController(title: "", message: "Where Would you like to get your Picture From?", preferredStyle: .ActionSheet)
 		
 		let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) { (action) -> Void in
-		self.imagePicker.sourceType = (.Camera)
-			self.presentViewController(self.imagePicker, animated: true, completion: nil)
+		self.presentImagePickerFor(.Camera)
 			
 		}
 		let photoLibrary = UIAlertAction(title: "Photos in Library", style: UIAlertActionStyle.Default) { (action) -> Void in
-			self.imagePicker.sourceType = (.PhotoLibrary)
-			self.presentViewController(self.imagePicker, animated: true, completion: nil)
+			self.presentImagePickerFor(.PhotoLibrary)
 		}
 		
 		let cancelAction = UIAlertAction(title: "Cancel?", style: UIAlertActionStyle.Cancel, handler: nil)
@@ -76,12 +84,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		alertController.addAction(cameraAction)
 		alertController.addAction(photoLibrary)
 		alertController.addAction(cancelAction)
-		
 		self.presentViewController(alertController, animated: true, completion: nil)
 
 		}
-	
-	
 	
 	func presentAlertView() {
 		let alertController = UIAlertController(title: "", message: "Image Uploaded", preferredStyle: .Alert)
@@ -89,9 +94,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		alertController.addAction(okAction)
 		self.presentViewController(alertController, animated: true, completion: nil)
 	}
-	
-	
-	
 	
 	func presentImagePickerFor(sourceType: UIImagePickerControllerSourceType) {
 		
@@ -101,8 +103,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		self.presentViewController(imagePickerController, animated: true, completion: nil)
 	}
 
-	
-	
 	func presentFilterAlert() {
 		let alertController = UIAlertController(title: "Filter", message: "Pick your Favorite Filter", preferredStyle: .ActionSheet)
 		
@@ -122,39 +122,72 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		}
 		let chromeFilterAction = UIAlertAction(title: "Chrome", style: .Default) { (alert) -> Void in
 			FilterService.applyChromeEffect(self.imageView.image!, completion: { (filteredImage, name) -> Void in
-				if let FilterService = filteredImage {
+				if let filteredImage = filteredImage {
 					self.imageView.image = filteredImage
 				}
 			})
 		}
-		// Add Alert Controller
-		let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
 		
+		let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
 		alertController.addAction(vintageFilterAction)
 		alertController.addAction(bwFilterAction)
 		alertController.addAction(chromeFilterAction)
 		alertController.addAction(cancelAction)
-		
-		
 		self.presentViewController(alertController, animated: true, completion: nil)
 		
 	}
-	
+
+	func galleryViewControllerDidFinish(image: UIImage) {
+		self.imageView.image = image
+		self.tabBarController?.selectedIndex = 0
+	}
 	
 	// MARK: UIImagePickerController Delegate
-	// Here you'll find the two protocol functions to the UIImagePicker Controller
-
 	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
 		
-		print(image)
-		
-			self.imageView.image = image
-			self.dismissViewControllerAnimated(true, completion: nil)
+		self.dismissViewControllerAnimated(true, completion: nil)
+		let resizeImage = UIImage.resizeImage(image, size: CGSize(width: 500, height: 500))
+		self.imageView.image = resizeImage
+		presentFilterAlert()
+
 	}
 	
 	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
+	
+	func filtersPreviewViewControllerDidFinish(image: UIImage) {
+		self.imageView.image = image
+		self.dismissViewControllerAnimated(true, completion: nil)
+		
+	}
+	
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return filteredImages.count
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(FilterPreviewCell.identifier(), forIndexPath: indexPath) as! FilterPreviewCell
+		let image = self.filteredImages[indexPath.row]
+		cell.image = image
+		
+		return cell
+	}
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let filteredImage = self.filteredImages[indexPath.row]
+		self.imageView.image = filteredImage
+	}
+	
+	func collectionViewSelectedStatus(status: Status) {
+		self.dismissViewControllerAnimated(true, completion: nil)
+		self.imageView.image = status.image
+		tabBarController!.selectedViewController = tabBarController!.viewControllers![0]
+		presentFilterAlert()
+	}
+	
+	
+
 }
 
 

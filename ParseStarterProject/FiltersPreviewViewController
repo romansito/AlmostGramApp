@@ -1,0 +1,76 @@
+//
+//  FiltersPreviewViewController.swift
+//  AlmostGram
+//
+//  Created by Roman Salazar Lopez on 11/6/15.
+//  Copyright © 2015 Parse. All rights reserved.
+//
+
+import UIKit
+
+protocol FiltersPreviewViewControllerDelegate {
+	func filtersPreviewViewControllerDidFinish(image: UIImage)
+}
+
+class FiltersPreviewViewController: UIViewController, UICollectionViewDelegate,UICollFilterPreviewCellectionViewDataSource {
+
+	var delegate : FiltersPreviewViewControllerDelegate?
+	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		self.collectionVew.collectionViewLayout = FlexibleFlowLayout(columns: 3.0)
+		func presentFilterAlert() {
+		self.performSegueWithIdentifier("filterViewController", sender: nil)
+		}
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+	
+	
+	
+	@IBOutlet weak var collectionVew : UICollectionView!
+
+	var image : UIImage?
+	// class of filters in array
+	var filters = [FilterService.applyBWEffect, FilterService.applyChromeEffect, FilterService.applyVintageEffect]
+	
+
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return filters.count
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		
+		// Create a Cell
+		let fillterCell = collectionView.dequeueReusableCellWithReuseIdentifier("previewFilterCell", forIndexPath: indexPath) as! FilterPreviewCell
+		
+		let filterFunction = self.filters[indexPath.row]
+		if let image = self.image {
+			filterFunction(image, completion: {(filteredImage, name) -> Void in
+			fillterCell.imageView.image = filteredImage
+			})
+		}
+		return fillterCell
+	}
+	
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		// fire anytime user selects a collection view cell
+		if let delegate = self.delegate {
+			let cell = collectionView.cellForItemAtIndexPath(indexPath) as! FilterPreviewCell
+			delegate.filtersPreviewViewControllerDidFinish(cell.imageView.image!)
+		}
+	}
+	
+	
+}
+
+
+
+
+
+
+
